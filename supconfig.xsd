@@ -232,6 +232,7 @@
 					<xs:attribute name="strategy" use="required" type="strategyType" />
 					<xs:attribute name="vectors" use="required" />
 					<xs:attribute name="vocab" use="required" />
+					<xs:attribute name="lowercase" use="required" />
 					<xs:attribute name="window" use="required" type="windowType" />
 				</xs:extension>
 			</xs:simpleContent>

@@ -29,9 +29,10 @@ public class WordEmbeddingsExtractor extends FeatureExtractor {
 	private final float mCacheSize;
 	private final int mWindowSize;
 	private final WEMemoryManagment mWEMemoryManagment;
+	private final boolean lowercase;
 
 	public WordEmbeddingsExtractor(WEStrategy strategy, int windowSize, String vectorsFile, String vocabFile,
-			float cacheSize)  {
+			float cacheSize, boolean lowercase)  {
 
 		super(0);
 
@@ -40,6 +41,7 @@ public class WordEmbeddingsExtractor extends FeatureExtractor {
 		this.mVocabFile = vocabFile;
 		this.mCacheSize = cacheSize;
 		this.mWEMemoryManagment = new WEMemoryManagment(vectorsFile,DEFAULT_SEPARATOR);
+		this.lowercase = lowercase;
 	}
 
 	@Override
@@ -69,7 +71,10 @@ public class WordEmbeddingsExtractor extends FeatureExtractor {
 
 		for (int k = min; k <= max; k++) {
 	
-			word = tokens[k>id?k+offset:k].getWord().toLowerCase();
+			word = tokens[k>id?k+offset:k].getWord();
+			if(lowercase) {
+				word = word.toLowerCase();
+			}
 			wordEmbedding = this.mWEMemoryManagment.get(word);
 			wordEmbeddings.put(k - id, wordEmbedding);
 		}

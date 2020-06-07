@@ -172,7 +172,8 @@ public class ConfigHandler extends XMLHandler {
 								(int) getParam(Integer.class, ConfigAttribute.WINDOW, 4),
 								(String) getParam(String.class, ConfigAttribute.VECTORS, true),
 								(String) getParam(String.class, ConfigAttribute.VOCAB, false),
-								(Float) getParam(Float.class, ConfigAttribute.CACHE, true)));
+								(Float) getParam(Float.class, ConfigAttribute.CACHE, true),
+								Boolean.parseBoolean((String)getParam(String.class, ConfigAttribute.LOWERCASE, false))));
 
 			break;
 

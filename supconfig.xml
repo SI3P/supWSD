@@ -17,7 +17,7 @@
 			<surrounding_words cutoff="" window=""></surrounding_words>
 			<word_embeddings strategy="" window=""
 				vectors=""
-				vocab="" cache=""></word_embeddings>
+				vocab="" cache="" lowercase=""></word_embeddings>
 			<syntactic_relations></syntactic_relations>
 		</features>
 	</extraction>
